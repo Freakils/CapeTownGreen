@@ -1,4 +1,5 @@
 var taxiLocationCounter = 1;
+// displayMessage(taxiLocationCounter);
 
 var body = document.querySelector("body");
 body.onkeydown = function(e){
@@ -6,24 +7,21 @@ body.onkeydown = function(e){
 	var keyName = keyCodeName(e.keyCode);
 	
 		if(keyName === "right"){
-		taxiLocationCounter = taxiLocationCounter+1;
+			if(taxiLocationCounter<9){
+			taxiLocationCounter = taxiLocationCounter+1;
+			};
 		};
 
 		if(keyName === "left"){
+			if(taxiLocationCounter>1){
 			taxiLocationCounter = taxiLocationCounter-1;
+			};
 		};
 
 
-displayMessage(taxiLocationCounter);
+displayMessage(createLocactionClass(taxiLocationCounter));
 
 };
-
-	// else if(keyCodeName === "left"){
-	// 	taxiLocationCounter = taxiLocationCounter--;
-	
-// }
-
-
 
 
 	var keyCodeName = function(keycode) {
@@ -48,7 +46,7 @@ displayMessage(taxiLocationCounter);
 	};
 
 
-	function createLocationClass(number) {
+	var createLocactionClass = function(number) {
 		if(number ===1) {
 			return "slot-one-of-nine";
 		}
@@ -85,3 +83,4 @@ displayMessage(taxiLocationCounter);
 			return "slot-nine-of-nine";
 		}
 	};
+
