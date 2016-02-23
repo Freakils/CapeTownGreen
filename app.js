@@ -8,7 +8,7 @@ body.onkeydown = function(e){
 	
 		if(keyName === "right"){
 			if(taxiLocationCounter<9){
-			taxiLocationCounter = taxiLocationCounter+1;
+			moveForward();
 			};
 		};
 
@@ -22,6 +22,15 @@ body.onkeydown = function(e){
 displayMessage(createLocactionClass(taxiLocationCounter));
 
 };
+
+moveForward = function(taxiLocationCounter){
+	var currentLocation = createLocationClass(taxiLocationCounter);
+		taxiLocationCounter = taxiLocationCounter+1;
+	var newLocation = createLocationClass(taxiLocationCounter);
+};
+
+moveTaxi(currentLocation,newLocation);
+
 
 
 	var keyCodeName = function(keycode) {
