@@ -1,6 +1,7 @@
 var taxiLocationCounter = 1;
 // displayMessage(taxiLocationCounter);
 
+//find the body tag and store it in a variable called 'body'
 var body = document.querySelector("body");
 body.onkeydown = function(e){
     //e.keyCode - will capture the key codes
