@@ -15,23 +15,28 @@ body.onkeydown = function(e){
 
 		if(keyName === "left"){
 			if(taxiLocationCounter>1){
-			taxiLocationCounter = taxiLocationCounter-1;
+			moveBackward();
 			};
 		};
 
 
-displayMessage(createLocactionClass(taxiLocationCounter));
+displayMessage(createLocationClass(taxiLocationCounter));
 
 };
 
-moveForward = function(taxiLocationCounter){
+function moveForward(){
 	var currentLocation = createLocationClass(taxiLocationCounter);
 		taxiLocationCounter = taxiLocationCounter+1;
 	var newLocation = createLocationClass(taxiLocationCounter);
+		moveTaxi(currentLocation,newLocation);
 };
 
-moveTaxi(currentLocation,newLocation);
-
+function moveBackward(){
+	var currentLocation = createLocationClass(taxiLocationCounter);
+		taxiLocationCounter = taxiLocationCounter-1;
+	var newLocation = createLocationClass(taxiLocationCounter);
+		moveTaxi(currentLocation,newLocation);
+};
 
 
 	var keyCodeName = function(keycode) {
@@ -56,7 +61,7 @@ moveTaxi(currentLocation,newLocation);
 	};
 
 
-	var createLocactionClass = function(number) {
+	var createLocationClass = function(number) {
 		if(number ===1) {
 			return "slot-one-of-nine";
 		}
@@ -91,6 +96,44 @@ moveTaxi(currentLocation,newLocation);
 
 		if(number ===9) {
 			return "slot-nine-of-nine";
+		}
+	};
+
+	var createTrafficLightClass = function(number){
+		if(number ===1) {
+			return ".one-of-nine";
+		}
+
+		if(number ===2) {
+			return ".two-of-nine";
+		}
+
+		if(number ===3) {
+			return ".three-of-nine";
+		}
+
+		if(number ===4) {
+			return ".four-of-nine";
+		}
+
+		if(number ===5) {
+			return ".five-of-nine";
+		}
+
+		if(number ===6) {
+			return ".six-of-nine";
+		}
+
+		if(number ===7) {
+			return ".seven-of-nine";
+		}
+
+		if(number ===8) {
+			return ".eight-of-nine";
+		}
+
+		if(number ===9) {
+			return ".nine-of-nine";
 		}
 	};
 
